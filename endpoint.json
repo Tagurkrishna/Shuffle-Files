@@ -1,25 +1,26 @@
 {
-  "endpoint_uid": "String: Required: Unique identifier of the endpoint in the source system.",
-  "hostname": "String: Required: Primary hostname of the endpoint.",
-  "security_update": "String: Recommended:Identifier of the latest OS security update or patch level applied to this endpoint (e.g., OS build number or last installed KB/patch ID)”,
-  "source": "String: Required: Name of the platform or system this endpoint data came from (e.g., EDR, MDM, CMDB, Cloud provider).",   
-  "security_update_history_time": "Timestamp: Optional: Timestamp of the most recent security update in ISO 8601 format",  
-  “disk_encryption”: “Boolean: Recommended: Indicates whether full disk encryption is enabled e.g. FileVault on macOS, BitLocker on Windows. LUKS on Linux and so on”,
-  "patch_update": "String: Recommended: Current OS patch compliance status for this endpoint (e.g., Up to date, Outdated, Critical missing, Unknown).”, 
-  "ip_address": "String: Optional: Primary IP address of the endpoint.",
-  "password_policy": "Boolean: Recommended: Indicates whether the endpoint complies with the organisation password policy.",
-  “status_detail”: “String: Optional: Additional context describing the current status or reason for non-compliance.”,
-  "org": {
-    "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
-    "uid": "String: Optional: Unique identifier of the organization or tenant."
-  },
-  "os_name": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
-  "os_version": "String: Optional: Operating system version or build (e.g., 11.0.22631, 22.04).",
-  "user": "String: Optional: Identifier or username of the primary user associated with the endpoint.”,(We can point it to user.json)
-  “device_managed": "Boolean: Optional: Indicates whether the endpoint is managed by corporate tooling (true = managed, false = unmanaged).",
-  "status": "String: Optional: Current operational status of the endpoint (e.g., Online, Offline, Retired).",
-  "status_id": "Integer: Optional: Normalized numeric status code for the endpoint.",
-  "created_time": "Timestamp String: Optional: Time when the endpoint record was created, in ISO 8601 format.",
-  "last_seen_time": "Timestamp String: Optional: Last time the endpoint checked in or reported telemetry, in ISO 8601 format."
+  "endpoint_uid": "String: Required: Unique identifier of the endpoint in the source system.",
+  "hostname": "String: Required: Primary hostname of the endpoint.",
+  "security_update": "String: Recommended:Identifier of the latest OS security update or patch level applied to this endpoint (e.g., OS build number or last installed KB/patch ID)”,
+  "source": "String: Required: Name of the platform or system this endpoint data came from (e.g., EDR, MDM, CMDB, Cloud provider).",   
+  "security_update_history_time": "Timestamp: Optional: Timestamp of the most recent security update in ISO 8601 format",  
+  “disk_encryption”: “Boolean: Recommended: Indicates whether full disk encryption is enabled e.g. FileVault on macOS, BitLocker on Windows. LUKS on Linux and so on”,
+  "patch_update": "String: Recommended: Current OS patch compliance status for this endpoint (e.g., Up to date, Outdated, Critical missing, Unknown).”, 
+  "ip_address": "String: Optional: Primary IP address of the endpoint.",
+  "password_policy": "Boolean: Recommended: Indicates whether the endpoint complies with the organisation password policy.",
+  “status_detail”: “String: Optional: Additional context describing the current status or reason for non-compliance.”,
+  "org": {
+    "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
+    "uid": "String: Optional: Unique identifier of the organization or tenant."
+  },
+  "os_name": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
+  "os_version": "String: Optional: Operating system version or build (e.g., 11.0.22631, 22.04).",
+  “device_type”: "String: Optional: Endpoint platform or form factor (e.g., Workstation, Laptop, Server, Mobile, VM).",
+  "user": "String: Optional: Identifier or username of the primary user associated with the endpoint.”,(We can point it to user.json)
+  “device_managed": "Boolean: Optional: Indicates whether the endpoint is managed by corporate tooling (true = managed, false = unmanaged).",
+  "status": "String: Optional: Current operational status of the endpoint (e.g., Online, Offline, Retired).",
+  "status_id": "Integer: Optional: Normalized numeric status code for the endpoint.",
+  "created_time": "Timestamp String: Optional: Time when the endpoint record was created, in ISO 8601 format.",
+  "last_seen_time": "Timestamp String: Optional: Last time the endpoint checked in or reported telemetry, in ISO 8601 format."
 }
 
