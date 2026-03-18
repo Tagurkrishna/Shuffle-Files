@@ -20,7 +20,10 @@
   "device_managed": "Boolean: Optional: Indicates whether the endpoint is managed by corporate tooling (true = managed, false = unmanaged).",
   "status": "String: Optional: Current operational status of the endpoint (e.g., Online, Offline, Retired).",
   "status_id": "Integer: Optional: Normalized numeric status code for the endpoint.",
-  "created_time": "Timestamp String: Optional: Time when the endpoint record was created, in ISO 8601 format.",
+  "os_machine_uuid": "String: Optional: UUID of operating system assigned Machine ID.",
+  "interface_name": "String: Recommended: The name of the network interface(e.g. eth 1).",
+  "interface_uid": "String: Recommended: The unique identifier of the network interface."
+  "created_time": "String: Optional: Time when the endpoint record was created, in ISO 8601 format.",
   "last_seen_time": "Timestamp String: Optional: Last time the endpoint checked in or reported telemetry, in ISO 8601 format."
 }
 
