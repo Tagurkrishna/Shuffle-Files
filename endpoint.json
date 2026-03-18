@@ -2,6 +2,8 @@
   "hostname": "String: Required: Primary hostname of the endpoint.",
   "owner": "user.json"
   "security_update": "String: Recommended: Identifier of the latest OS security update or patch level applied to this endpoint (e.g., OS build number or last installed KB/patch ID)",
+  "uid": "String: Recommended: The unique identifier of the device. For example the Windows TargetSID or AWS EC2 ARN.",
+  "name": "String: Optional: The alternate device name, ordinarily as assigned by an administrator.",
   "source": "String: Required: Name of the platform or system this endpoint data came from (e.g., EDR, MDM, CMDB, Cloud provider).",   
   "security_update_history_time": "Timestamp: Optional: Timestamp of the most recent security update in ISO 8601 format",  
   "disk_encryption": "Boolean: Recommended: Indicates whether full disk encryption is enabled e.g. FileVault on macOS, BitLocker on Windows. LUKS on Linux and so on",
@@ -10,7 +12,7 @@
   "status_detail": "String: Optional: Additional context describing the current status or reason for non-compliance.",
   
   "org"{
-    "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
+    "org_name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
     "uid": "String: Recommended: The unique identifier of the device. For example the Windows TargetSID or AWS EC2 ARN.",
   }
     
