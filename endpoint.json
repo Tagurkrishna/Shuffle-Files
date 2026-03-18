@@ -15,8 +15,8 @@
   },
   "os_name": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
   "os_version": "String: Optional: Operating system version or build (e.g., 11.0.22631, 22.04).",
-  "type_id": "String: Optional: Endpoint platform or form factor (e.g., Workstation, Laptop, Server, Mobile, VM).",
-  "user": "String: Optional: Identifier or username of the primary user associated with the endpoint.",(We can point it to user.json)
+  "type": "String: Optional: Endpoint platform or form factor (e.g., Workstation, Laptop, Server, Mobile, VM).",
+  "user": "String: Optional: Identifier or username of the primary user associated with the endpoint.",
   "device_managed": "Boolean: Optional: Indicates whether the endpoint is managed by corporate tooling (true = managed, false = unmanaged).",
   "status": "String: Optional: Current operational status of the endpoint (e.g., Online, Offline, Retired).",
   "status_id": "Integer: Optional: Normalized numeric status code for the endpoint.",
