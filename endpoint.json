@@ -10,7 +10,6 @@
   "uid": "String: Recommended: The unique identifier of the device. For example the Windows TargetSID or AWS EC2 ARN.",
   "status_detail": "String: Optional: Additional context describing the current status or reason for non-compliance.",
   "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
-   
   
   "os": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
   "agent_list": "Array: Optional: A list of agent objects associated with a device, endpoint, or resource."
