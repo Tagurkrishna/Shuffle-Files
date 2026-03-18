@@ -12,8 +12,9 @@
   "org": {
     "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
     "uid": "String: Optional: Unique identifier of the organization or tenant."
-  },
-  "os_name": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
+  },
+  
+  "os_name": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
   "os_version": "String: Optional: Operating system version or build (e.g., 11.0.22631, 22.04).",
   "type": "String: Optional: Endpoint platform or form factor (e.g., Workstation, Laptop, Server, Mobile, VM).",
   "type_id": "Integer: Required: The device type ID. 0: Unknown, 1: Server, 2: Desktop, 3: Laptop, 4:     Tablet, 5: Mobile, 6: Virtual, 7: IOT, 8: Browser, 9: Firewall, 10: Switch, 11: Hub, 12: Router, 13: IDS, 14: IPS, 15: Load Balancer, 99: Other",
