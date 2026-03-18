@@ -7,10 +7,13 @@
   "disk_encryption": "Boolean: Recommended: Indicates whether full disk encryption is enabled e.g. FileVault on macOS, BitLocker on Windows. LUKS on Linux and so on",
   "patch_update": "String: Recommended: Current OS patch compliance status for this endpoint (e.g., Up to date, Outdated, Critical missing, Unknown).", 
   "ip": "String: Recommended: Primary IP address of the endpoint.",
-  "uid": "String: Recommended: The unique identifier of the device. For example the Windows TargetSID or AWS EC2 ARN.",
   "status_detail": "String: Optional: Additional context describing the current status or reason for non-compliance.",
-  "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
   
+  "org"{
+    "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
+    "uid": "String: Recommended: The unique identifier of the device. For example the Windows TargetSID or AWS EC2 ARN.",
+  }
+    
   "os": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
   "agent_list": "Array: Optional: A list of agent objects associated with a device, endpoint, or resource."
   "os_version": "String: Optional: Operating system version or build (e.g., 11.0.22631, 22.04).",
