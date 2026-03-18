@@ -11,7 +11,7 @@
   "ip": "String: Recommended: Primary IP address of the endpoint.",
   "status_detail": "String: Optional: Additional context describing the current status or reason for non-compliance.",
   
-  "org"{
+  "org": {
     "org_name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
     "uid": "String: Recommended: The unique identifier of the device. For example the Windows TargetSID or AWS EC2 ARN.",
   }
