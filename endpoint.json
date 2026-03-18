@@ -13,7 +13,7 @@
   "org": {
     "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
     "uid": "String: Optional: Unique identifier of the organization or tenant."
-  },
+  }
   
   "os_name": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
   "os_version": "String: Optional: Operating system version or build (e.g., 11.0.22631, 22.04).",
@@ -25,4 +25,5 @@
   "status_id": "Integer: Optional: Normalized numeric status code for the endpoint.",
   "created_time": "Timestamp String: Optional: Time when the endpoint record was created, in ISO 8601 format.",
   "last_seen_time": "Timestamp String: Optional: Last time the endpoint checked in or reported telemetry, in ISO 8601 format."
+}
 }
