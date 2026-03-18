@@ -9,12 +9,11 @@
   "ip": "String: Recommended: Primary IP address of the endpoint.",
   "uid": "String: Recommended: The unique identifier of the device. For example the Windows TargetSID or AWS EC2 ARN.",
   "status_detail": "String: Optional: Additional context describing the current status or reason for non-compliance.",
-  "org": {
-    "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
-    "uid": "String: Optional: Unique identifier of the organization or tenant."
-  },
-  "os_name": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
-  "endpoint_uid": "String: Optional: Unique identifier of the endpoint in the source system.",
+  "name": "String: Optional: Name of the organization or tenant the endpoint belongs to.",
+   
+  
+  "os": "String: Optional: Operating system name (e.g., Windows, Linux, macOS).",
+  "agent_list": "Array: Optional: A list of agent objects associated with a device, endpoint, or resource."
   "os_version": "String: Optional: Operating system version or build (e.g., 11.0.22631, 22.04).",
   "type": "String: Optional: Endpoint platform or form factor (e.g., Workstation, Laptop, Server, Mobile, VM).",
   "device_managed": "Boolean: Optional: Indicates whether the endpoint is managed by corporate tooling (true = managed, false = unmanaged).",
