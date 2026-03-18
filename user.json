@@ -1,0 +1,20 @@
+{
+"mfa_enabled": "Boolean: Required: True if MFA is enabled, False if disabled.",
+"user": "String: Required: Unique identifier or username of the account associated with the authentication event.",
+"platform": "String: Required: Name of the platform this data came from e.g. GitHub, Shuffle, Okta. Write the name directly, not a variable.",
+"org": "String: Required: Name of the organization or tenant associated with the user account.",
+  
+"message": "String: Optional: Additional contextual or debug information related to the authentication event.",
+"role": "String: Optional: If known, explicitly specify the user’s role or privilege level (e.g., Admin, User, Viewer). This must be a fixed value, not a variable.",
+"logon_type_id": "Integer: Optional: Numeric identifier representing the type of logon (e.g., interactive, remote, service, batch).",
+"activity_id": "Integer: Optional: Identifier representing the specific authentication-related activity or event type.",
+"status": "String: Optional: Human-readable description indicating the outcome of the authentication attempt (e.g., Success, Failure).",
+"status_id": "Integer: Optional: Normalized numeric identifier representing the authentication status.(0 Unknown, 1 Success, 2 Failure, 99 Other)",
+"status_detail": "String: Optional: Additional explanation or context describing the meaning of the status_id value.",
+"confidence": "Integer: Optional: Confidence score (0–100) indicating the likelihood that the finding or event is accurate and valid.",
+"category_name": "String: Optional: Human-readable name of the category corresponding to category_uid.",
+"start_time": "Timestamp String: Optional: Time when the authentication event or session started, in ISO 8601 format.",
+"severity_id": "Integer: Optional: Numeric severity level indicating the risk associated with the authentication event.",
+"status_code": "String: Optional: System-generated code representing error or response status, useful for troubleshooting.",
+"users_last_session": "Timestamp String: Optional: Last recorded session time of the user in ISO 8601 format."
+}
