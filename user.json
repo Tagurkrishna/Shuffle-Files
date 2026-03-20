@@ -35,8 +35,11 @@
   "metadata": {
     "version": "String: Required: OCSF schema version e.g. 1.0.0.",
     "uid": "String: Optional: Original event UID in the source system. If no relevant ID exists keep blank.",
-    "product": "String: Required: Name of the platform this data came from e.g. GitHub, Shuffle, Okta. Write the name directly, not a variable.",
     "logged_time": "String: Optional: Time the event was logged in ISO 8601 format.",
+    "product": {
+      "name": "String: Required: Name of the platform this data came from e.g. GitHub, Shuffle, Okta. Write the name directly, not a variable.",
+      "vendor_name": "String: Optional: Name of the vendor that owns the platform."
+    },
     "extensions": {
       "custom_attributes": {
         "comments": "Array: Optional: Array of objects with fields author, timestamp, text representing analyst comments.",
