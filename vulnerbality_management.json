@@ -1,0 +1,75 @@
+{
+  "class_uid": 2002,
+  "class_name": "Vulnerability Finding",
+
+  "device_uid": "String: Required: Unique identifier of the device or repository being assessed.",
+  "hostname": "String: Required: Primary hostname of the device or name of the repository being assessed.",
+  "source": "String: Required: Name of the platform or tool this data came from e.g. Dependabot, Snyk, GitHub, Qualys, Nessus. Write the name directly, not a variable.",
+  "asset_type": "String: Required: Type of asset being assessed. Values: Device, Repository, Container, Application.",
+
+  "patch_status": "String: Required: Overall patch compliance status of this device or asset. Values: Up to date, Updates pending, Critical missing, Unknown.",
+  "last_patch_time": "String: Optional: Timestamp of the last patch or update applied in ISO 8601 format.",
+  "pending_patches_count": "Integer: Optional: Total number of patches or updates pending application.",
+  "critical_patches_count": "Integer: Optional: Number of critical severity patches pending application.",
+  "patch_sla_breached": "Boolean: Optional: Indicates whether critical patches have exceeded the allowed remediation timeframe. True = SLA breached, False = within SLA.",
+
+  "os_name": "String: Optional: Operating system name e.g. Windows, Linux, macOS.",
+  "os_version": "String: Optional: Current operating system version or build number.",
+  "os_end_of_life": "Boolean: Optional: Indicates whether the operating system version is end of life and no longer receiving security updates. True = end of life.",
+
+  "vulnerabilities_summary": {
+    "total": "Integer: Required: Total number of vulnerabilities found on this asset.",
+    "critical": "Integer: Required: Number of critical severity vulnerabilities.",
+    "high": "Integer: Required: Number of high severity vulnerabilities.",
+    "medium": "Integer: Required: Number of medium severity vulnerabilities.",
+    "low": "Integer: Required: Number of low severity vulnerabilities.",
+    "exploited_in_wild": "Integer: Optional: Number of vulnerabilities known to be actively exploited."
+  },
+
+  "top_vulnerabilities": "Array: Optional: List of the most critical vulnerabilities found. Each item contains cve_uid, name, severity, fix_available, affected_package.",
+
+  "repo_security": {
+    "name": "String: Optional: Name of the GitHub repository if this is a repository assessment.",
+    "dependabot_enabled": "Boolean: Optional: Indicates whether Dependabot is enabled for automated vulnerability detection.",
+    "dependabot_alerts_open": "Integer: Optional: Number of open Dependabot security alerts.",
+    "dependabot_alerts_critical": "Integer: Optional: Number of critical Dependabot alerts requiring immediate action.",
+    "code_scanning_enabled": "Boolean: Optional: Indicates whether code scanning is enabled on this repository.",
+    "secret_scanning_enabled": "Boolean: Optional: Indicates whether secret scanning is enabled on this repository.",
+    "last_dependency_scan": "String: Optional: Timestamp of the last dependency vulnerability scan in ISO 8601 format."
+  },
+
+  "overall_vulnerability_status": "String: Required: Overall vulnerability management status of this asset. Values: Compliant, Non-Compliant, Critical, Unknown.",
+
+  "findings": "Array: Required: List of specific vulnerability issues found. Empty array means compliant. Each item is a string describing the issue e.g. Critical CVE unpatched for 30 days.",
+
+  "risk_score": "Integer: Required: Risk score 0-100 indicating overall vulnerability risk. 0 = fully patched and protected, 100 = critical unpatched vulnerabilities.",
+  "risk_level": "String: Required: Human-readable risk level. Values: LOW, MEDIUM, HIGH, CRITICAL.",
+
+  "remediation_priority": "String: Optional: Recommended remediation priority for this asset. Values: Immediate, Within 7 days, Within 30 days, Scheduled.",
+
+  "device_managed": "Boolean: Optional: Indicates whether device is managed by corporate tooling. True = managed, False = unmanaged.",
+  "device_type": "String: Optional: Type of device or asset e.g. Laptop, Server, Container, Repository.",
+
+  "org": {
+    "name": "String: Optional: Name of the organization or tenant this asset belongs to.",
+    "uid": "String: Optional: Unique identifier of the organization."
+  },
+
+  "metadata": {
+    "version": "String: Required: OCSF schema version e.g. 1.0.0.",
+    "uid": "String: Optional: Original record UID in the source system. If no relevant ID exists keep blank.",
+    "logged_time": "String: Optional: Time this record was generated in ISO 8601 format.",
+    "product": {
+      "name": "String: Required: Name of the scanning tool this data came from e.g. Dependabot, Snyk, Nessus, GitHub. Write the name directly not a variable.",
+      "vendor_name": "String: Optional: Name of the vendor that owns the scanning tool."
+    },
+    "extensions": {
+      "custom_attributes": {
+        "comments": "Array: Optional: Array of objects with fields author, timestamp, text representing analyst comments.",
+        "tlp": "Integer: Optional: Traffic Light Protocol classification. Default: 2.",
+        "custom_fields": "Object: Optional: Arbitrary key-value pairs for vendor-specific or workflow-specific fields.",
+        "assignee": "String: Optional: Email or identifier of the analyst responsible for remediating this asset."
+      }
+    }
+  }
+}
