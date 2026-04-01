@@ -1,0 +1,126 @@
+{
+  "class_uid": 6003,
+  "class_name": "Application Activity",
+  "category_uid": "Integer: Required: Numeric category UID as defined by OCSF 6 = Application Activity.",
+  "category_name": "String: Optional: Human-readable name of the category corresponding to category_uid.",
+  "activity_id": "Integer: Required: Identifier representing the source-code access activity being recorded.(0: Unknown, 1: Repository Access, 2: Repository Clone, 3: Repository Pull, 4: Repository Push, 5: Pull Request Access, 6: Pull Request Review, 7: Pull Request Merge, 8: Branch Access, 9: Branch Protection Change, 10: Source Code Download, 11: Source Code View, 12: Permission Change, 13: Secret Access, 14: Pipeline Trigger, 99: Other)",
+  "activity_name": "String: Optional: Human-readable name of the activity associated with activity_id.",
+  "type_uid": "Integer: Optional: OCSF type identifier combining class, activity, and category when available.",
+  "severity_id": "Integer: Optional: Numeric severity level indicating the risk associated with the event.",
+  "status": "String: Optional: Human-readable result of the source code access event e.g. Success, Failure, Denied.",
+  "status_id": "Integer: Optional: Normalized numeric identifier representing the event status. 0 Unknown, 1 Success, 2 Failure, 3 Denied, 99 Other.",
+  "status_detail": "String: Optional: Additional explanation describing the status or control decision.",
+  "status_code": "String: Optional: Platform-generated response or error code useful for troubleshooting.",
+  "message": "String: Optional: Additional contextual or debug information related to the source code access event.",
+  "time": "String: Required: Time the source code access event occurred in ISO 8601 format.",
+  "start_time": "String: Optional: Time when the access session or request started in ISO 8601 format.",
+  "end_time": "String: Optional: Time when the access session or request ended in ISO 8601 format.",
+  "duration": "Integer: Optional: Duration of the activity in milliseconds when start and end times are known.",
+  "user": {
+    "name": "String: Required: Unique identifier or username of the account associated with the source code access event.",
+    "uid": "String: Required: Unique identifier of the user in the source system.",
+    "type": "String: Optional: Type of identity performing the action e.g. Human, Service Account, Bot, Contractor. Use a fixed value if known."
+  },
+  "actor": {
+    "user": {
+      "name": "String: Optional: Name of the acting user when different from the affected user.",
+      "uid": "String: Optional: Unique identifier of the acting user in the source system.",
+      "type": "String: Optional: Role or privilege context of the acting identity e.g. Admin, Developer, Reviewer, CI Service. Use a fixed value if known."
+    },
+    "process": {
+      "name": "String: Optional: Name of the process, client, agent, or automation tool that executed the request e.g. git, GitHub Actions runner, Jenkins agent.",
+      "uid": "String: Optional: Unique identifier of the process, job, or automation instance if available."
+    }
+  }
+    ,
+  "src_endpoint": {
+    "hostname": "String: Optional: Hostname of the device or workload from which the request originated.",
+    "ip": "String: Optional: Source IP address initiating the request.",
+    "type": "String: Optional: Type of endpoint e.g. Laptop, Workstation, Build Server, Container, Mobile. Use a fixed value if known."
+  },
+  "org": {
+    "name": "String: Required: Name of the organization, tenant, or business unit associated with the repository or source code platform.",
+    "uid": "String: Optional: Unique identifier of the organization or tenant."
+  },
+  "cloud": {
+    "provider": "String: Optional: Cloud provider or hosting platform if applicable e.g. GitHub, GitLab, Bitbucket, Azure DevOps, AWS CodeCommit.",
+    "account": {
+      "uid": "String: Optional: Account, subscription, or tenant identifier in the hosting environment.",
+      "name": "String: Optional: Human-readable account or tenant name in the hosting environment."
+    }
+  },
+  "app_name": "String: Optional: Name of the application, SCM, or developer platform where the event occurred.",
+  "repository": {
+    "name": "String: Required: Repository, project, or codebase name accessed by the user or process.",
+    "uid": "String: Optional: Unique repository identifier in the source platform.",
+    "path": "String: Optional: Full repository path or namespace e.g. org/project/service-api.",
+    "branch": "String: Optional: Branch name involved in the activity.",
+    "visibility": "String: Optional: Repository visibility e.g. Public, Internal, Private."
+  },
+  "file": {
+    "name": "String: Optional: Name of the source file, artifact, or manifest involved in the event.",
+    "path": "String: Optional: Full relative or absolute path to the source file or directory involved in the event.",
+    "type": "String: Optional: File type or extension e.g. py, js, java, yml, secrets, config.",
+    "size": "Integer: Optional: File size in bytes when available."
+  },
+  "code_request": {
+    "request_type": "String: Optional: Type of access request or code operation e.g. clone, pull, fetch, checkout, merge, review, download, read.",
+    "request_id": "String: Optional: Platform request identifier such as pull request ID, merge request ID, or API request ID.",
+    "target_ref": "String: Optional: Target branch, tag, or commit reference requested.",
+    "source_ref": "String: Optional: Source branch, fork, or commit reference involved in the request.",
+    "approval_state": "String: Optional: Approval state of the request e.g. Pending, Approved, Rejected, Merged.",
+    "transport": "String: Optional: Protocol or method used to access the code e.g. HTTPS, SSH, Web UI, API, Agent.",
+    "is_privileged": "Boolean: Optional: True when the request involves privileged access, protected branches, production repositories, or restricted code paths.",
+    "is_sensitive": "Boolean: Optional: True when the request involves highly sensitive code, secrets, security tooling, or regulated data handling logic."
+  },
+  "access_control": {
+    "permission": "String: Optional: Effective permission used for the action e.g. Read, Write, Admin, Maintainer, Reviewer.",
+    "permission_change": "String: Optional: Description of permission change when the event updates source code access rights.",
+    "decision": "String: Optional: Result of policy evaluation e.g. Allowed, Denied, Blocked, Requires Approval.",
+    "reason": "String: Optional: Business or technical reason for the access decision.",
+    "reviewer": "String: Optional: User, team, or approver validating access or pull request workflow.",
+    "is_approved_exception": "Boolean: Optional: True when access was granted under a documented exception."
+  }
+    ,
+  "auth_protocol": "String: Optional: Authentication or authorization protocol used to access the platform e.g. OAuth, PAT, SSH Key, SAML, OIDC.",
+  "session": {
+    "uid": "String: Optional: Session or connection identifier associated with the source code access event.",
+    "is_mfa": "Boolean: Optional: True if MFA was used during the session, False if not used or not verified.",
+    "issuer": "String: Optional: Identity provider or session issuer associated with the authentication context."
+  },
+  "unmapped": {
+    "tags": "Array: Optional: List of normalized labels relevant to the event e.g. source_code_access, pull_request, protected_branch, secret_access.",
+    "observables": "Array: Optional: Additional observables relevant to the event such as commit hashes, branch refs, ticket IDs, or change request numbers.",
+    "notes": "String: Optional: Free-text analyst or workflow note explaining control relevance or investigation context."
+  },
+  "metadata": {
+    "version": "String: Required: OCSF schema version e.g. 1.0.0.",
+    "uid": "String: Optional: Original event UID in the source system. If no relevant ID exists keep blank.",
+    "logged_time": "String: Optional: Time the event was logged in ISO 8601 format.",
+    "product": {
+      "name": "String: Required: Name of the platform this data came from e.g. GitHub, GitLab, Bitbucket, Azure DevOps. Write the name directly, not a variable.",
+      "vendor_name": "String: Optional: Name of the vendor that owns the platform."
+    },
+    "profiles": [
+      "String: Optional: List of normalization profiles or control mappings relevant to this record e.g. ISO27001_A.8.4, Secure_SDLC, IAM."
+    ],
+    "extensions": {
+      "custom_attributes": {
+        "control_id": "String: Optional: Control identifier associated with the event. Recommended value: ISO27001:2022-A.8.4.",
+        "control_name": "String: Optional: Control title associated with the event. Recommended value: Access to Source Code.",
+        "control_objective": "String: Optional: Short statement describing the security objective, such as restricting unauthorized viewing, copying, modification, or transfer of source code.",
+        "repository_owner": "String: Optional: Team, squad, or business owner responsible for the repository.",
+        "data_classification": "String: Optional: Classification of the codebase or file e.g. Public, Internal, Confidential, Restricted.",
+        "change_ticket": "String: Optional: Related change request, approval, or service ticket identifier.",
+        "commit_hash": "String: Optional: Commit SHA associated with the activity if available.",
+        "merge_commit_hash": "String: Optional: Merge commit SHA when the event relates to a completed merge.",
+        "pr_title": "String: Optional: Title of the pull or merge request when applicable.",
+        "justification": "String: Optional: Business justification provided for privileged or exceptional source code access.",
+        "comments": "Array: Optional: Array of objects with fields author, timestamp, text representing analyst comments or review notes.",
+        "tlp": "Integer: Optional: Traffic Light Protocol classification. Default: 2.",
+        "custom_fields": "Object: Optional: Arbitrary key-value pairs for vendor-specific or workflow-specific fields.",
+        "assignee": "String: Optional: Email or identifier of the analyst, reviewer, or system responsible for this event."
+      }
+    }
+  }
+}
