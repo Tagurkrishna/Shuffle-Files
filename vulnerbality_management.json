@@ -1,7 +1,7 @@
 {
   "class_uid": 2002,
   "class_name": "Vulnerability Finding",
-
+  
   "device_uid": "String: Required: Unique identifier of the device or repository being assessed.",
   "hostname": "String: Required: Primary hostname of the device or name of the repository being assessed.",
   "source": "String: Required: Name of the platform or tool this data came from e.g. Dependabot, Snyk, GitHub, Qualys, Nessus. Write the name directly, not a variable.",
