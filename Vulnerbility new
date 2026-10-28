@@ -1,0 +1,170 @@
+{
+  "class_uid": 2002,
+  "class_name": "Vulnerability Finding",
+  "category_uid": 2,
+  "category_name": "Findings",
+  "activity_id": 1,
+  "activity_name": "Create",
+  "type_uid": 200201,
+  "type_name": "Vulnerability Finding: Create",
+  "status_id": 1,
+  "status": "New",
+  "severity_id": 4,
+  "severity": "High",
+  "confidence_id": 3,
+  "confidence": "High",
+  "time": 1730018474000,
+  "message": "<LLM: Short 1-2 sentence human-readable summary of the entire vulnerability event, email, or issue>",
+  "comment": "<LLM: The latest comment, triage note, or user reply posted on the issue/email thread. Use null if none>",
+  "raw_data": "<LLM: Optional raw unparsed text/JSON of the original source payload>",
+  "metadata": {
+    "version": "1.3.0",
+    "uid": "<LLM: Unique event UUID generated for this ingestion record>",
+    "logged_time": 1730018475000,
+    "product": {
+      "name": "<LLM: Source platform name where this data came from, e.g. 'GitHub', 'Gmail', 'Jira', 'Slack', 'Trivy', 'Tenable'>",
+      "vendor_name": "<LLM: Vendor of the source platform, e.g. 'GitHub', 'Google', 'Atlassian', 'Aqua Security'>",
+      "feature": {
+        "name": "<LLM: Specific feature or channel, e.g. 'GitHub Issues', 'Security Mailbox', 'Container Scanner'>"
+      }
+    }
+  },
+  "actor": {
+    "user": {
+      "uid": "<LLM: Reporter/Sender unique ID, username, or email address>",
+      "name": "<LLM: Display name or username of the person who reported/posted the issue or sent the email>",
+      "email_addr": "<LLM: Email address of the reporter/sender (e.g. Gmail 'From' address). Use null if not available>",
+      "type": "User",
+      "type_id": 1
+    }
+  },
+  "finding_info": {
+    "uid": "<LLM: REQUIRED unique ID from the source platform, e.g. GitHub Issue ID/Number, Gmail Message-ID, Jira Key, or Scanner Finding ID>",
+    "title": "<LLM: REQUIRED headline/title. Map from: GitHub Issue Title | Gmail Subject | Jira Summary | Scanner Alert Title>",
+    "desc": "<LLM: REQUIRED full description/body. Map from: GitHub Issue Description | Gmail Email Body | Ticket Description | Report Summary>",
+    "types": [
+      "<LLM: Classification tags, e.g. 'GitHub Issue', 'Email Report', 'Bug Bounty', 'SAST', 'SCA', 'Container Vulnerability'>"
+    ],
+    "created_time": 1729932074000,
+    "modified_time": 1730018474000,
+    "first_seen_time": 1729932074000,
+    "last_seen_time": 1730018474000,
+    "src_url": "<LLM: Direct URL to the source item, e.g. GitHub Issue URL, Gmail web link, Jira URL, or Scanner Report link>"
+  },
+  "ticket": {
+    "uid": "<LLM: Linked tracking ticket ID if mentioned (e.g. 'SEC-4412' or GitHub Issue '#142'). Use null if none>",
+    "title": "<LLM: Title of the tracking ticket>",
+    "status": "<LLM: Ticket status, e.g. 'Open', 'In Progress', 'Closed'>",
+    "src_url": "<LLM: URL to the tracking ticket>"
+  },
+  "resources": [
+    {
+      "uid": "<LLM: Identifier of the affected asset, e.g. GitHub Repository URL, Web URL mentioned in Gmail body, Cloud ARN, Hostname, or Container Image>",
+      "name": "<LLM: Human-readable name of the affected repo, app, host, or service (e.g. 'org/backend-repo' or 'portal.example.com')>",
+      "type": "<LLM: Asset type, e.g. 'Repository', 'Web Application', 'Container', 'Server', 'Cloud Resource'>",
+      "cloud_partition": "<LLM: e.g. 'aws', 'gcp', 'azure', or null if not applicable>",
+      "region": "<LLM: Cloud region if mentioned, or null>",
+      "labels": [
+        "<LLM: Tags or labels from the platform, e.g. GitHub Issue labels like 'bug', 'security', 'severity:high'>"
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "title": "<LLM: REQUIRED title of the specific vulnerability (if not separate, repeat finding_info.title)>",
+      "desc": "<LLM: REQUIRED technical description of the vulnerability, root cause, and impact extracted from the report/email/issue body>",
+      "severity": "<LLM: Normalized severity string: 'Informational', 'Low', 'Medium', 'High', 'Critical', or 'Unknown'>",
+      "is_exploit_available": true,
+      "is_fix_available": false,
+      "vendor_name": "<LLM: Vendor of the vulnerable software/component if known, else null>",
+      "references": [
+        "<LLM: Any external advisory URLs, reference links, or PR links mentioned in the body>"
+      ],
+      "kb_article_list": [
+        {
+          "uid": "<LLM: Attachment ID or Report Document ID>",
+          "title": "<LLM: File name of attachment (e.g. from Gmail) or advisory title>",
+          "src_url": "<LLM: Storage URL or download link for the attachment/report file>"
+        }
+      ],
+      "cve": {
+        "uid": "<LLM: Official CVE ID if mentioned in text (e.g. 'CVE-2024-1234'). If NO CVE is mentioned, set the entire 'cve' object to null>",
+        "type": "CVE",
+        "cvss": [
+          {
+            "version": "<LLM: CVSS version e.g. '3.1' or '4.0'>",
+            "base_score": 9.8,
+            "severity": "<LLM: 'Low', 'Medium', 'High', 'Critical'>",
+            "vector_string": "<LLM: CVSS vector string if mentioned, e.g. 'CVSS:3.1/AV:N/...'>"
+          }
+        ],
+        "cwe": {
+          "uid": "<LLM: CWE identifier if mentioned or inferred, e.g. 'CWE-89' for SQLi, 'CWE-79' for XSS, 'CWE-918' for SSRF>",
+          "caption": "<LLM: Name of the CWE weakness, e.g. 'SQL Injection'>"
+        }
+      },
+      "affected_packages": [
+        {
+          "name": "<LLM: Vulnerable library/package name if applicable (e.g. 'openssl', 'lodash')>",
+          "version": "<LLM: Currently affected version>",
+          "package_manager": "<LLM: e.g. 'npm', 'pip', 'maven', 'dpkg', 'go'>",
+          "purl": "<LLM: Package URL if available>",
+          "fixed_in_version": "<LLM: Patched version if mentioned>"
+        }
+      ],
+      "affected_code": [
+        {
+          "file": {
+            "name": "<LLM: File name mentioned in issue/report, e.g. 'auth.py'>",
+            "path": "<LLM: Full file path in repo if mentioned, e.g. 'src/api/auth.py'>",
+            "type_id": 1
+          },
+          "start_line": 42,
+          "end_line": 68
+        }
+      ],
+      "remediation": {
+        "desc": "<LLM: Recommended fix, patch instructions, or mitigation steps extracted from the report/email/issue>",
+        "references": [
+          "<LLM: Links to patch, PR, or remediation guide>"
+        ]
+      }
+    }
+  ],
+  "unmapped": {
+    "source_platform": "<LLM: Lowercase identifier of source: 'github' | 'gmail' | 'jira' | 'slack' | 'scanner' | 'other'>",
+    "report_details": {
+      "executive_summary": "<LLM: High-level summary extracted from the report or email body>",
+      "steps_to_reproduce": [
+        "<LLM: Step-by-step reproduction instructions extracted from the issue/email/report body>"
+      ],
+      "proof_of_concept": "<LLM: Code snippet, curl command, payload, or HTTP request extracted from the report/email>",
+      "impact_statement": "<LLM: Business or technical impact described by the reporter>"
+    },
+    "attachments": [
+      {
+        "file_name": "<LLM: Name of attached file from Gmail/GitHub/Jira, e.g. 'poc_screenshot.png' or 'report.pdf'>",
+        "mime_type": "<LLM: MIME type, e.g. 'application/pdf', 'image/png', 'text/plain'>",
+        "size_bytes": 102400,
+        "storage_url": "<LLM: URL or S3/bucket path where the attachment is saved>",
+        "extracted_text_summary": "<LLM: Summary or content extracted from inside the attachment if parsed>"
+      }
+    ],
+    "user_posts": [
+      {
+        "post_id": "<LLM: Comment ID, Message ID, or Reply index>",
+        "author_name": "<LLM: Username or email of the person who wrote this post/comment/email>",
+        "role": "<LLM: 'Reporter' | 'Analyst' | 'Developer' | 'User'>",
+        "posted_time": 1729932074000,
+        "matter": "<LLM: Full text content posted by the user in the issue description, comment thread, or email body>"
+      }
+    ],
+    "platform_metadata": {
+      "github_repo": "<LLM: 'owner/repo' if source is GitHub, else null>",
+      "github_issue_number": "<LLM: Issue/PR number if source is GitHub, else null>",
+      "email_from": "<LLM: Sender email if source is Gmail/Email, else null>",
+      "email_to": "<LLM: Recipient email if source is Gmail/Email, else null>",
+      "email_subject": "<LLM: Raw email subject if source is Gmail/Email, else null>"
+    }
+  }
+}
